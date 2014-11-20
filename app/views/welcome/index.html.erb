@@ -67,7 +67,10 @@
 
 <div class="container lead">
   <% @quotes.each do |quote| %>
-    <%= quote %>
+    <% saying, sayer = quote %>
+    <strong><%= saying %></strong>
+    <br>
+    <em><%= sayer %></em>
     <br>
     <br>
   <% end %>
