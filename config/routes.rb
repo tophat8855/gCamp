@@ -7,6 +7,7 @@ root 'welcome#index'
 
 get '/about' => 'pages#about'
 get '/terms' => 'pages#terms'
+get '/faq' => 'pages#faq'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
