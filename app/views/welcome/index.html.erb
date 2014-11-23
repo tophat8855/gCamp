@@ -66,12 +66,10 @@
 <br>
 
 <div class="container lead">
-  <% @quotes.each do |quote| %>
-    <% saying, sayer = quote %>
-    <strong><%= saying %></strong>
+  <% @quotes.each do |saying| %>
+    <strong><%= saying.quote %></strong>
     <br>
-    <em><%= sayer %></em>
-    <br>
-    <br>
+    <em><%= saying.quoter %></em>
+    <br><br>
   <% end %>
 </div>
