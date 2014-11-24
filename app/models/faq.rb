@@ -1,4 +1,4 @@
-class FAQ
+class FAQ #< ActiveRecord::Base
   attr_reader :question, :answer
   def initialize(question, answer)
     @question = question
