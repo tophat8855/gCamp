@@ -10,6 +10,7 @@ root 'welcome#index'
 get '/about' => 'pages#about'
 get '/terms' => 'pages#terms'
 get '/faq' => 'pages#faq'
+get '/tasks' => 'pages#tasks'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
