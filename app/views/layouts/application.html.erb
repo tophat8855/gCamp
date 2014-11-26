@@ -6,23 +6,26 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
+
 <body>
-
-   <nav class="navbar navbar-default navbar-fixed-top navbar-inverse" role="navigation">
-    <div class="container">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <%= link_to "gCamp", root_path, :class =>"navbar-brand" %>
+  <div class="container">
+    <nav class="navbar navbar-default navbar-fixed-top navbar-inverse" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <%= link_to "gCamp", root_path, :class =>"navbar-brand" %>
+        </div>
       </div>
-    </div><!-- /.container-fluid -->
-  </nav>
+    </nav>
 
-<%= yield %>
+    <%= yield %>
 
-<footer>
-  <hr></h>
-  <h3><%= link_to "About", "/about" %> | <%= link_to "Terms", "terms" %> | <%= link_to "FAQ", "faq" %></h3>
-</footer>
-
+    <footer>
+      <hr>
+        <%= link_to "About", "/about" %> |
+        <%= link_to "Terms", "terms" %> |
+        <%= link_to "FAQ", "faq" %>
+    </footer>
+  </div>
+  
 </body>
 </html>

@@ -1,10 +1,6 @@
-<div class="container-fluid">
-  <h1>Frequently Asked Questions<h1>
-</div>
+<h1>Frequently Asked Questions<h1>
 
-<div class="container-fluid">
-  <% @faqs.each do |faq| %>
-    <h4><%= faq.question %></h4>
-    <p><%= faq.answer %></p>
-  <% end %>
-</div>
+<% @faqs.each do |faq| %>
+  <h4><%= faq.question %></h4>
+  <p><%= faq.answer %></p>
+<% end %>
