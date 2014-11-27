@@ -1,8 +1,14 @@
 <div class="container-fluid">
 
-  <h1>Listing tasks</h1>
+  <h1>
+    Listing tasks
+    <div class= "pull-right">
+      <%= link_to 'Download CSV', tasks_path(format: :csv), class: "btn btn-info  glyphicon glyphicon-download-alt" %>
+    </div>
+  </h1>
 
-  <table>
+
+  <table class="table">
     <thead>
       <tr>
         <th>Description</th>
@@ -21,10 +27,7 @@
       <% end %>
     </tbody>
   </table>
-  <%= link_to 'Download CSV list', tasks_path(format: :csv) %>
-
-
-  <br>
 
   <%= link_to 'New Task', new_task_path %>
+
 </div>
