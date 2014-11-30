@@ -3,7 +3,12 @@
   <div class="page-header">
     <h1>
       Listing tasks
-      <div class= "pull-right">
+      <div class= "pull-right h5">
+        <% if params[:type] == 'incomplete'%>
+          <%= link_to 'All', tasks_path(type: 'all') %> | <%= 'Incomplete' %>
+        <% else %>
+          <%= 'All' %> | <%= link_to 'Incomplete', tasks_path(type: 'incomplete') %>
+        <% end %>
         <%= link_to 'Download CSV', tasks_path(format: :csv), class: "btn btn-info  glyphicon glyphicon-download-alt" %>
         <%= link_to 'New Task', new_task_path, class: "btn btn-info" %>
       </div>
