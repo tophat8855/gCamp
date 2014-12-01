@@ -12,6 +12,10 @@ get '/terms' => 'pages#terms'
 get '/faq' => 'pages#faq'
 get '/tasks' => 'pages#tasks'
 
+get '/users' => 'users#index'
+
+resources :users
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

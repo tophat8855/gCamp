@@ -6,4 +6,11 @@ class WelcomeController < ApplicationController
       Quote.new('"Better Ingredients, Better Pizza"', '- Papa John'),
     ]
   end
+
+  # def csv_quotes
+  #   CSV.foreach('app/assets/quotes.csv') do |row|
+  #     Quote.new(row)
+  #   end
+  # end
+
 end
