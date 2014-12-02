@@ -4,10 +4,9 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
+    @tasks = Task.order(params[:sort])
     if params[:type] == 'incomplete'
       @tasks = Task.where(complete: false)
-    else
-      @tasks = Task.all
     end
   end
 
@@ -76,6 +75,6 @@ class TasksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def task_params
-      params.require(:task).permit(:description, :complete, :due_date, :type)
+      params.require(:task).permit(:description, :complete, :due_date)
     end
 end
