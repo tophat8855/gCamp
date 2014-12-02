@@ -17,7 +17,7 @@
     </nav>
 
     <% flash.each do |name, msg| -%>
-    <%= content_tag :div, msg, class: "alert alert-#{name}" %>
+    <%= content_tag :div, msg, class: "alert alert-#{name} text-center" %>
     <% end -%>
 
     <div class="container">
