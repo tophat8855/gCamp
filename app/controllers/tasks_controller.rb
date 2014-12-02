@@ -5,9 +5,9 @@ class TasksController < ApplicationController
   # GET /tasks.json
   def index
     if params[:type] == 'incomplete'
-      @tasks = Task.where(complete: false).order(:due_date)
+      @tasks = Task.where(complete: false)
     else
-      @tasks = Task.order(:due_date)
+      @tasks = Task.all
     end
   end
 

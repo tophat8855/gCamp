@@ -9,8 +9,8 @@
         <% else %>
           <%= 'All' %> | <%= link_to 'Incomplete', tasks_path(type: 'incomplete') %>
         <% end %>
-        <%= link_to 'Download CSV', tasks_path(format: :csv), class: "btn btn-info  glyphicon glyphicon-download-alt" %>
         <%= link_to 'New Task', new_task_path, class: "btn btn-info" %>
+        <%= link_to 'Download CSV', tasks_path(format: :csv), class: "btn btn-info " %> <!-- glyphicon glyphicon-download-alt-->
       </div>
     </h1>
   </div>
@@ -24,8 +24,6 @@
         <th colspan="3"></th>
       </tr>
     </thead>
-
-
 
     <tbody>
       <% @tasks.each do |task| %>
