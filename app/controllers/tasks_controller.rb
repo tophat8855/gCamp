@@ -7,7 +7,7 @@ class TasksController < ApplicationController
   def index
     @tasks = Task.order(sort_column + " " + sort_direction)
     if params[:type] == 'incomplete'
-      @tasks = Task.where(complete: false)
+      @tasks = @tasks.where(complete: false)
     end
   end
 
