@@ -67,9 +67,11 @@
 
 <br>
 
-<% @quotes.each do |saying| %>
-  <strong><%= saying.quote %></strong>
-  <br>
-  <em><%= saying.quoter %></em>
-  <br><br>
-<% end %>
+<ul class="list-unstyled">
+  <% @quotes.each do |saying| %>
+    <p>
+      <strong><%= saying.quote %></strong>
+      <em><%= saying.quoter %></em>
+    </p>
+  <% end %>
+</ul>

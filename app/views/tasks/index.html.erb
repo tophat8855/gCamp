@@ -1,43 +1,40 @@
-<div class="container-fluid">
-
-  <div class="page-header">
-    <h1>
-      Tasks
-      <div class= "pull-right h5">
-        <% if params[:type] == 'incomplete'%>
-          <%= link_to 'All', tasks_path(type: 'all') %> | <%= 'Incomplete' %>
-        <% else %>
-          <%= 'All' %> | <%= link_to 'Incomplete', tasks_path(type: 'incomplete') %>
-        <% end %>
-        <%= link_to 'New Task', new_task_path, class: "btn btn-info" %>
-        <%= link_to 'Download CSV', tasks_path(format: :csv), class: "btn btn-info " %> <!-- glyphicon glyphicon-download-alt-->
-      </div>
-    </h1>
-  </div>
-
-  <table class="table">
-    <thead>
-      <tr>
-        <th><%= link_to "Description", :sort => "description" %></th>
-        <th><%= link_to "Complete", :sort => "complete" %></th>
-        <th><%= link_to "Due", :sort => "due_date" %></th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @tasks.each do |task| %>
-        <tr class=<%="danger" if (Date.today..(Date.today + 7)).include?(task.due_date) %> >
-          <td class= "col-sm-2"><%= task.description %></td>
-          <td class= "col-sm-2"><%= task.complete %></td>
-          <td class= "col-sm-5"><%= task.due_date %></td>
-          <div class= "col-md-pull-12">
-            <td><%= link_to 'Show', task, class: "btn btn-success" %></td>
-            <td><%= link_to 'Edit', edit_task_path(task), class: "btn btn-info" %></td>
-            <td><%= link_to 'Delete', task, class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          </div>
-        </tr>
+<div class="page-header">
+  <h1>
+    Tasks
+    <div class= "pull-right h5">
+      <% if params[:type] == 'incomplete'%>
+        <%= link_to 'All', tasks_path(type: 'all') %> | <%= 'Incomplete' %>
+      <% else %>
+        <%= 'All' %> | <%= link_to 'Incomplete', tasks_path(type: 'incomplete') %>
       <% end %>
-    </tbody>
-  </table>
+      <%= link_to 'New Task', new_task_path, class: "btn btn-info" %>
+      <%= link_to 'Download CSV', tasks_path(format: :csv), class: "btn btn-info " %> <!-- glyphicon glyphicon-download-alt-->
+    </div>
+  </h1>
 </div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th><%= sortable "description" %></th>
+      <th><%= sortable "complete" %></th>
+      <th><%= sortable "due_date", "Due" %></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tasks.each do |task| %>
+      <tr class=<%="danger" if (Date.today..(Date.today + 7)).include?(task.due_date) %> >
+        <td class= "col-sm-2"><%= task.description %></td>
+        <td class= "col-sm-2"><%= task.complete %></td>
+        <td class= "col-sm-5"><%= task.due_date %></td>
+        <div class= "col-md-pull-12">
+          <td><%= link_to 'Show', task, class: "btn btn-success" %></td>
+          <td><%= link_to 'Edit', edit_task_path(task), class: "btn btn-info" %></td>
+          <td><%= link_to 'Delete', task, class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </div>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

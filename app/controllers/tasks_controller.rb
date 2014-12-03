@@ -1,10 +1,11 @@
 class TasksController < ApplicationController
+  helper_method :sort_column, :sort_direction
   before_action :set_task, only: [:show, :edit, :update, :destroy]
 
   # GET /tasks
   # GET /tasks.json
   def index
-    @tasks = Task.order(params[:sort])
+    @tasks = Task.order(sort_column + " " + sort_direction)
     if params[:type] == 'incomplete'
       @tasks = Task.where(complete: false)
     end
@@ -76,5 +77,13 @@ class TasksController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def task_params
       params.require(:task).permit(:description, :complete, :due_date)
+    end
+
+    def sort_column
+      params[:sort] || 'description'
+    end
+
+    def sort_direction
+      params[:direction] || "asc"
     end
 end
