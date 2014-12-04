@@ -11,10 +11,21 @@ class ProjectsController < ApplicationController
     @project = Project.new(project_params)
     if @project.save
       flash[:success] = "Project was successfully created"
-      redirect_to projects_path
+      redirect_to project_path @project
     else
       render :new
     end
+  end
+
+  def show
+    @project = Project.find(params[:id])
+  end
+
+  def destroy
+    @project = Project.find(params[:id])
+    @project.destroy
+    flash[:success] = "Project was successfully deleted"
+    redirect_to projects_path
   end
 
   private
