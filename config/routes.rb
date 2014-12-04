@@ -15,6 +15,7 @@ get '/tasks' => 'pages#tasks'
 get '/users' => 'users#index'
 
 resources :users
+resources :projects
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
