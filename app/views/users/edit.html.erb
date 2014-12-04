@@ -3,31 +3,39 @@
 </div>
 
 <%= form_for(@user, html: {class:"form-horizontal"}) do |f| %>
-<div class="form-group">
-  <%= f.label :first_name, class: "control-label col-xs-2" %>
-  <div class="col-sm-5">
-    <%= f.text_field :first_name, class: "form-control" %>
+  <div class="form-group">
+    <%= f.label :first_name, class: "control-label col-xs-2" %>
+    <div class="col-sm-5">
+      <%= f.text_field :first_name, class: "form-control" %>
+    </div>
   </div>
-</div>
 
-<div class="form-group">
-  <%= f.label :last_name, class: "control-label col-xs-2" %>
-  <div class="col-sm-5">
-    <%= f.text_field :last_name, class: "form-control" %>
+  <div class="form-group">
+    <%= f.label :last_name, class: "control-label col-xs-2" %>
+    <div class="col-sm-5">
+      <%= f.text_field :last_name, class: "form-control" %>
+    </div>
   </div>
-</div>
 
-<div class="form-group">
-  <%= f.label :email, class: "control-label col-xs-2" %>
-  <div class="col-sm-5">
-    <%= f.email_field :email, class: "form-control" %>
+  <div class="form-group">
+    <%= f.label :email, class: "control-label col-xs-2" %>
+    <div class="col-sm-5">
+      <%= f.email_field :email, class: "form-control" %>
+    </div>
   </div>
-</div>
 
-<div class = "form-group">
-  <div class="actions col-xs-6 col-xs-offset-2">
-    <%= f.submit "Update User", class: 'btn btn-primary' %>
-    <%= link_to 'cancel', users_path, class: "btn btn-default" %>
+  <div class = "form-group">
+    <div class="actions col-xs-6 col-xs-offset-2">
+      <%= f.submit "Update User", class: 'btn btn-primary' %>
+      <%= link_to 'cancel', users_path, class: "btn btn-default" %>
+    </div>
   </div>
-</div>
+
+  <div class = "col-xs-offset-2 col-xs-5">
+    <div class = "form-group well">
+      <div class="actions text-center">
+        <%= link_to 'Delete User', user_path(@user), method: :delete, class: "btn btn-danger" %>
+      </div>
+    </div>
+  </div>
 <% end %>
