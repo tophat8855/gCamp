@@ -14,7 +14,7 @@ class WelcomeController < ApplicationController
   #   @quotes = CSV.read('app/assets/quotes.csv')
   # end
 
-  ## And put this in the view instead of the other ul (posting it here because it's practically impossible to comment out html cleanly)
+  ## And put this in the view instead of the other ul (posting it here because it's difficult to comment out html cleanly)
   #
   # <ul class="list-unstyled">
   # <% @quotes.each do |saying| %>
@@ -25,6 +25,25 @@ class WelcomeController < ApplicationController
   #   <em>
   #   <%= saying[1] %>
   #   </em>
+  #   </p>
+  #   <% end %>
+  #   </ul>
+
+
+
+  #### JSON FILE IMPORT CODE ### USE THIS INDEX ACTION IF USING JSON FILE FOR QUOTES
+
+  # def index
+  #   @quotes = JSON.parse(File.read('app/assets/quotes.json'))
+  # end
+
+  ## SIMILAR TO CSV ABOVE, COPY/PASTE THIS HTML CODE INTO WELCOME INDEX WHERE THE <ul class> IS
+
+  # <ul class="list-unstyled">
+  # <% @quotes.each_pair do |saying, sayer| %>
+  #   <p>
+  #   <strong><%= saying %></strong>
+  #   <em><%= sayer %></em>
   #   </p>
   #   <% end %>
   #   </ul>
