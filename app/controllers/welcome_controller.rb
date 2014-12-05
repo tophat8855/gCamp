@@ -7,10 +7,26 @@ class WelcomeController < ApplicationController
     ]
   end
 
-  # def csv_quotes
-  #   CSV.foreach('app/assets/quotes.csv') do |row|
-  #     Quote.new(row)
-  #   end
+
+  ## USE THIS INDEX METHOD IF USING CSV FILE TO IMPORT QUOTES ##
+  #
+  # def index
+  #   @quotes = CSV.read('app/assets/quotes.csv')
   # end
+
+  ## And put this in the view instead of the other ul (posting it here because it's practically impossible to comment out html cleanly)
+  #
+  # <ul class="list-unstyled">
+  # <% @quotes.each do |saying| %>
+  #   <p>
+  #   <strong>
+  #   <%= saying[0] %>
+  #   </strong>
+  #   <em>
+  #   <%= saying[1] %>
+  #   </em>
+  #   </p>
+  #   <% end %>
+  #   </ul>
 
 end
