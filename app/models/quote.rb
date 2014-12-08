@@ -1,7 +1,5 @@
-class Quote #< ActiveRecord::Base
-  attr_reader :quote, :quoter
-  def initialize(quote, quoter)
-    @quote = quote
-    @quoter = quoter
+class Quote < ActiveRecord::Base
+  def index
   end
+
 end

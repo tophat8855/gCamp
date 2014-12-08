@@ -5,3 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Quote.create(quote: "Failure is not an option. Everyone has to succeed", quoter: "- Arnold Schwarzenegger")
+Quote.create(quote: "Your time is  limied, so don\'t waiste it living someone else\'s life.", quoter: "- Steve Jobs")
+Quote.create(quote: "Better ingredients, better pizza.", quoter: "- Papa John")
