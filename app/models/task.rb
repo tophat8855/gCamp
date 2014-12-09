@@ -1,4 +1,5 @@
 class Task < ActiveRecord::Base
+  validates :description, presence: true
   def index
     @tasks = Task.all
     respond_to do |format|

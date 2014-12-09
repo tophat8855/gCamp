@@ -1,48 +1,50 @@
 <%= form_for(@task, html: {class:"form-horizontal", role:"form"}) do |f| %>
   <% if @task.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
-
-      <ul>
-      <% @task.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <div class="row">
+      <div class="col-sm-5 col-sm-offset-2 ">
+        <div class="alert alert-danger"
+          <div id="error_explanation">
+            <h4><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h4>
+            <ul>
+            <% @task.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
   <% end %>
 
   <div class="form-group">
-    <%= f.label :description, class: "control-label col-sm-1" %>
+    <%= f.label :description, class: "col-sm-2" %>
     <div class="col-sm-5">
       <%= f.text_field :description, class: "form-control" %>
     </div>
   </div>
 
   <div class="form-group">
-    <%= f.label :due_date, class: "col-sm-1 control-label"%>
-    <div class="col-sm-5">
+    <%= f.label :due_date, class: "col-sm-2"%>
+    <div class="col-sm-3">
       <%= f.date_field :due_date, class: "form-control" %>
     </div>
   </div>
 
-  <div class="form-group">
-    <div class="checkbox col-sm-1 col-sm-offset-1">
-      <label>
-        <% if params[:action] == 'edit'%>
-          <%= f.check_box :complete %>Complete
-        <% end %>
-      </label>
+  <% if params[:action] == 'edit'%>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-5">
+        <%= f.check_box :complete %>
+        <%= f.label :complete %>
+      </div>
     </div>
-  </div>
+  <% end %>
 
   <div class="form-group">
-    <div class="actions col-xs-6 col-xs-offset-1">
+    <div class="col-sm-6 col-sm-offset-2">
+      <%= f.submit class:"btn btn-primary " %>
       <% if params[:action] == 'new'%>
-        <%= f.submit "Create Task", class:"btn btn-primary " %>
         <%= link_to 'cancel', tasks_path, class:"btn btn-default" %>
-
       <% else %>
-        <%= f.submit "Edit Task", class:"btn btn-primary " %>
         <%= link_to 'cancel', @task, class:"btn btn-default" %>
       <% end %>
     </div>
