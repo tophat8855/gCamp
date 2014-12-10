@@ -22,11 +22,10 @@
   <tbody>
     <% @users.each do |user| %>
     <tr>
-      <td class= "col-sm-5">
+      <td class="col-sm-5">
         <%= link_to "#{user.first_name} #{user.last_name}", user_path(user) %>
-
       </td>
-      <td class= "col-sm-6">
+      <td class="col-sm-7">
         <%= mail_to user.email %>
       </td>
       <td>
