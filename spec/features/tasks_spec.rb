@@ -34,12 +34,19 @@ feature 'CRUDing tasks' do
     due_date: "2014-12-11"
     )
 
+    task= Task.create!(
+    description: "Task 3",
+    complete: false,
+    due_date: "2014-12-13"
+    )
+
     visit tasks_path
-    click_on "Edit"
+    click_on "edit-task-#{task.id}-action"
+
     fill_in "Description", with: "Task 2"
     fill_in "Due date", with: "2014-12-12"
     check "Complete"
-    click_on "Update Task"
+    click_on "submit-task-action"
 
     expect(page).to have_content("Task 2")
     expect(page).to have_content("Completed: true")
