@@ -1,22 +1,4 @@
 <%= form_for(@user, html: {class:"form-horizontal"}) do |f| %>
-<% if @user.errors.any? %>
-  <div class="row">
-    <div class="col-sm-offset-2 col-sm-5">
-      <div class="alert alert-danger">
-        <div id="error_explanation">
-          <h4><%= pluralize(@user.errors.count, "error") %> prohibited this form from being saved:</h4>
-
-          <ul>
-            <% @user.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-            <% end %>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-  <% end %>
-
   <div class="form-group">
     <%= f.label :first_name, class: "control-label col-xs-2" %>
     <div class="col-sm-5">
@@ -40,10 +22,10 @@
 
   <div class = "form-group">
     <div class="actions col-xs-6 col-xs-offset-2">
-      <% if params["action"] == 'edit' %>
-        <%= f.submit "Update User", class: 'btn btn-primary' %>
-      <% else %>
+      <% if params["action"] == 'new' %>
         <%= f.submit "Create User", class: 'btn btn-primary' %>
+      <% else %>
+        <%= f.submit "Update User", class: 'btn btn-primary' %>
       <% end %>
       <%= link_to 'cancel', users_path, class: "btn btn-default" %>
     </div>

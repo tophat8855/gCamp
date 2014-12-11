@@ -1,0 +1,17 @@
+<% if crudded.errors.any? %>
+  <div class="row">
+    <div class="col-sm-offset-2 col-sm-5">
+      <div class="alert alert-danger">
+        <div id="error_explanation">
+          <h4><%= pluralize(crudded.errors.count, "error") %> prohibited this form from being saved:</h4>
+
+          <ul>
+            <% crudded.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
