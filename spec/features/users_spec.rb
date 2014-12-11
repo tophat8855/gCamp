@@ -43,6 +43,7 @@ feature 'CRUDing users' do
 
     expect(page).to have_content("Janet Surname")
     expect(page).to have_content("anon@anon.com")
+    expect(page.current_path).to eq(users_path)
   end
 
   scenario 'User deletes a user' do
@@ -53,7 +54,6 @@ feature 'CRUDing users' do
     )
 
     visit users_path
-    save_and_open_page
     click_on "Edit"
     click_on "Delete"
 
