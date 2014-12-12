@@ -5,39 +5,39 @@ feature 'CRUDing tasks' do
     visit tasks_path
     click_on "New Task"
     fill_in "Description", with: "Task 1"
-    fill_in "Due date", with: "2014-12-12"
+    fill_in "Due date", with: "2018-12-12"
     click_on "Create Task"
 
     expect(page).to have_content("Task 1")
     expect(page).to have_content("Completed: false")
-    expect(page).to have_content("Due Date: 2014-12-12")
+    expect(page).to have_content("Due Date: 2018-12-12")
   end
 
   scenario "User views a task" do
     Task.create!(
     description: "Send Christmas cards",
     complete: false,
-    due_date: "2014-12-12"
+    due_date: "2018-12-12"
     )
 
     visit tasks_path
     click_on "Show"
     expect(page).to have_content("Send Christmas cards")
     expect(page).to have_content("Completed: false")
-    expect(page).to have_content("Due Date: 2014-12-12")
+    expect(page).to have_content("Due Date: 2018-12-12")
   end
 
   scenario 'User edits an event' do
     Task.create!(
     description: "Task 1",
     complete: false,
-    due_date: "2014-12-11"
+    due_date: "2018-12-11"
     )
 
     task= Task.create!(
     description: "Task 3",
     complete: false,
-    due_date: "2014-12-13"
+    due_date: "2018-12-13"
     )
 
     visit tasks_path
@@ -50,7 +50,7 @@ feature 'CRUDing tasks' do
 
     expect(page).to have_content("Task 2")
     expect(page).to have_content("Completed: true")
-    expect(page).to have_content("Due Date: 2019-12-12")
+    expect(page).to have_content("Due Date: 2018-12-12")
   end
 
   scenario 'User deletes a task' do
