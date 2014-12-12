@@ -44,13 +44,13 @@ feature 'CRUDing tasks' do
     click_on "edit-task-#{task.id}-action"
 
     fill_in "Description", with: "Task 2"
-    fill_in "Due date", with: "2014-12-12"
+    fill_in "Due date", with: "2018-12-12"
     check "Complete"
     click_on "submit-task-action"
 
     expect(page).to have_content("Task 2")
     expect(page).to have_content("Completed: true")
-    expect(page).to have_content("Due Date: 2014-12-12")
+    expect(page).to have_content("Due Date: 2019-12-12")
   end
 
   scenario 'User deletes a task' do
