@@ -36,4 +36,17 @@ feature 'CRUDing projects' do
     expect(page).to have_content("Project 2")
   end
 
+  scenario 'User deletes a project' do
+    Project.create!(
+    name: "Project 1",
+    )
+
+    visit projects_path
+    click_on "Project 1"
+    click_on "Delete"
+
+    expect(page).to have_no_content("Project 1")
+
+  end
+
 end
