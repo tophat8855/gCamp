@@ -45,12 +45,12 @@ ActiveRecord::Schema.define(version: 20141217212504) do
   end
 
   create_table "users", force: true do |t|
-    t.string   "first_name", null: false
-    t.string   "last_name",  null: false
-    t.string   "email",      null: false
+    t.string   "first_name",      null: false
+    t.string   "last_name",       null: false
+    t.string   "email",           null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "password"
+    t.string   "password_digest"
   end
 
 end
