@@ -138,4 +138,19 @@ feature 'authorization and authentication' do
 
     expect(page).to have_content("Username / password combination is invalid")
   end
+
+  scenario 'user can sign out when logged in' do
+    visit root_path
+    click_on "Sign Up"
+    fill_in :user_first_name, with: "Jane"
+    fill_in :user_last_name, with: "Doe"
+    fill_in :user_email, with: "fake@fake.com"
+    fill_in :user_password, with: "abc123"
+    fill_in :user_password_confirmation, with: "abc123"
+    click_on "Sign up"
+    click_on "Sign Out"
+
+    expect(page).to have_content("Sign Up")
+    expect(page).to have_content("Sign In")
+  end
 end
