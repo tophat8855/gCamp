@@ -20,6 +20,8 @@ feature 'CRUDing users' do
       first_name: "Jane",
       last_name: "Doe",
       email: "jane@doe.com",
+      password: "123",
+      password_confirmation: "123",
     )
 
     visit users_path
@@ -34,6 +36,8 @@ feature 'CRUDing users' do
       first_name: "Jane",
       last_name: "Doe",
       email: "jane@doe.com",
+      password: "123",
+      password_confirmation: "123",
     )
 
     visit users_path
@@ -53,6 +57,8 @@ feature 'CRUDing users' do
     first_name: "Joe",
     last_name: "Schmoe",
     email: "fake@fake.com",
+    password: "123",
+    password_confirmation: "123",
     )
 
     visit users_path
