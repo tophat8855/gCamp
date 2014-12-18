@@ -5,3 +5,9 @@
     <%= link_to "Delete",project_path, method: :delete, class: "btn btn-danger" %>
   </div>
 </h1>
+<ol class = "breadcrumb">
+  <li><%= link_to "Projects", projects_path %></li>
+  <li class="active"><%= "#{@project.name}" %></li>
+</ol>
+
+<%= link_to "#{@project.tasks.count} Tasks", project_tasks_path(@project) %>
