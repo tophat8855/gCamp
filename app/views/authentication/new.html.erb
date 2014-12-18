@@ -1,0 +1,27 @@
+<div class="well container col-md-4 col-md-offset-4">
+
+  <h1>Sign into for gCamp</h1>
+  <%= form_tag signin_path, html:{role:"form"} do |f| %>
+    <% if @sign_in_error %>
+      <div class="text-danger">
+        <%= @sign_in_error %>
+      </div>
+    <% end %>
+
+    <div>
+      <%= label_tag :email %>
+      <%= email_field_tag :email, nil, class:"form-control" %>
+    </div>
+
+    <div>
+      <%= label_tag :password %>
+      <%= password_field_tag :password, nil, class:"form-control" %>
+    </div>
+
+    <br>
+
+    <div class="form-actions">
+      <%= submit_tag "Sign In", class:"btn btn-primary" %>
+    </div>
+  <% end %>
+</div>
