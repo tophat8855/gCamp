@@ -7,6 +7,8 @@ feature 'CRUDing users' do
     fill_in "First name", with: "User"
     fill_in "Last name", with: "1"
     fill_in "Email", with: "fake@email.com"
+    fill_in "Password", with: "123"
+    fill_in "Password confirmation", with: "123"
     click_on "Create User"
 
     expect(page).to have_content("User 1")
