@@ -13,15 +13,15 @@
         <div class="navbar-header">
           <%= link_to "gCamp", root_path, :class =>"navbar-brand" %>
         </div>
-        <div class = "nav navbar-nav navbar-right">
+        <ul class = "nav navbar-nav navbar-right">
           <% if current_user %>
           <%= link_to "#{current_user.first_name} #{current_user.last_name}", user_path(session[:user_id]), :class=>"navbar-brand" %>
-          <%= link_to "Sign Out", root_path, :class =>"navbar-brand" %>
+          <%= link_to "Sign Out", signout_path, :class =>"navbar-brand" %>
           <% else %>
           <%= link_to "Sign Up", signup_path, :class =>"navbar-brand" %>
           <%= link_to "Sign In", root_path, :class =>"navbar-brand" %>
           <% end %>
-        </div>
+        </ul>
       </div>
     </nav>
 

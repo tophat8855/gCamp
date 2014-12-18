@@ -1,27 +1,41 @@
 <%= form_for(@user, html: {class:"form-horizontal"}) do |f| %>
   <div class="form-group">
-    <%= f.label :first_name, class: "control-label col-xs-2" %>
+    <%= f.label :first_name, class: "control-label col-xs-3" %>
     <div class="col-sm-5">
       <%= f.text_field :first_name, class: "form-control" %>
     </div>
   </div>
 
   <div class="form-group">
-    <%= f.label :last_name, class: "control-label col-xs-2" %>
+    <%= f.label :last_name, class: "control-label col-xs-3" %>
     <div class="col-sm-5">
       <%= f.text_field :last_name, class: "form-control" %>
     </div>
   </div>
 
   <div class="form-group">
-    <%= f.label :email, class: "control-label col-xs-2" %>
+    <%= f.label :email, class: "control-label col-xs-3" %>
     <div class="col-sm-5">
       <%= f.email_field :email, class: "form-control" %>
     </div>
   </div>
 
+  <div class="form-group">
+    <%= f.label :password, class: "control-label col-xs-3" %>
+    <div class="col-sm-5">
+      <%= f.email_field :password, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :password_confirmation, class: "control-label col-xs-3" %>
+    <div class="col-sm-5">
+      <%= f.email_field :password_confirmation, class: "form-control" %>
+    </div>
+  </div>
+
   <div class = "form-group">
-    <div class="actions col-xs-6 col-xs-offset-2">
+    <div class="actions col-xs-6 col-xs-offset-3">
       <% if params["action"] == 'new' %>
         <%= f.submit "Create User", class: 'btn btn-primary' %>
       <% else %>
