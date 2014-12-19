@@ -8,7 +8,7 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
-    @tasks = Task.order(sort_column + " " + sort_direction)
+    @tasks = @project.tasks.order(sort_column + " " + sort_direction)
     if params[:type] == 'incomplete'
       @tasks = @tasks.where(complete: false)
     end
@@ -17,58 +17,51 @@ class TasksController < ApplicationController
   # GET /tasks/1
   # GET /tasks/1.json
   def show
+    @task = @project.tasks.find(params[:id])
   end
 
   # GET /tasks/new
   def new
-    @task = Task.new
+    @task = @project.tasks.new
   end
 
   # GET /tasks/1/edit
   def edit
+    @task = @project.tasks.find(params[:id])
   end
 
   # POST /tasks
   # POST /tasks.json
   def create
-    @task = Task.new(task_params)
+    @task = @project.tasks.new(task_params)
     @task.complete = false
-
-    respond_to do |format|
-      if @task.save
-        flash[:success] = "Task was successfully created"
-        format.html { redirect_to @task}
-        format.json { render :show, status: :created, location: @task }
-      else
-        format.html { render :new }
-        format.json { render json: @task.errors, status: :unprocessable_entity }
-      end
+    if @task.save
+      flash[:success] = "Task was successfully created"
+      redirect_to project_task_path(@project, @task)
+    else
+      render :new
     end
   end
 
   # PATCH/PUT /tasks/1
   # PATCH/PUT /tasks/1.json
   def update
-    respond_to do |format|
+    @task = @project.tasks.find(params[:id])
       if @task.update(task_params)
         flash[:success] = "Task was successfully updated"
-        format.html { redirect_to @task}
-        format.json { render :show, status: :ok, location: @task }
+        redirect_to project_tasks_path(@project)
       else
-        format.html { render :edit }
-        format.json { render json: @task.errors, status: :unprocessable_entity }
+        render :edit
       end
-    end
   end
 
   # DELETE /tasks/1
   # DELETE /tasks/1.json
   def destroy
+    @task = @project.tasks.find(params[:id])
     @task.destroy
-    respond_to do |format|
-      format.html { redirect_to tasks_url, notice: 'Task was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    flash[:success] = 'Task was successfully destroyed.'
+    redirect_to project_tasks_path(@project)
   end
 
   private

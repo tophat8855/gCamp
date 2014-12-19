@@ -10,7 +10,6 @@ Rails.application.routes.draw do
   get '/about' => 'pages#about'
   get '/terms' => 'pages#terms'
   get '/faq' => 'pages#faq'
-  #get '/tasks' => 'pages#tasks'
   get '/users' => 'users#index'
   get '/sign-up' => 'registrations#new', as: :signup
   post '/sign-up' => 'registrations#create'
